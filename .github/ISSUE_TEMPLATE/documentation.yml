@@ -3,6 +3,7 @@ description: "Report a problem, suggestion, or improvement for the show-file-tre
 title: "[DOC]: "
 labels:
   - "documentation"
+
 body:
   - type: input
     id: doc_section
@@ -63,10 +64,10 @@ body:
       label: "⚠️ Priority / Importance (Optional)"
       description: "Select the importance of this documentation improvement"
       options:
-        - Low
-        - Medium
-        - High
-        - Critical
+        - "Low"
+        - "Medium"
+        - "High"
+        - "Critical"
     validations:
       required: false
 
@@ -76,12 +77,12 @@ body:
       label: "🧩 Affected Modules / Components (Optional)"
       description: "Which parts of the package are affected by this documentation issue?"
       options:
-        - CLI (`cli.py`)
-        - Tree Builder (`tree_builder.py`)
-        - Tree Renderer (`tree_renderer.py`)
-        - Markdown Export (`md_exporter.py`)
-        - Notes Manager (`notes_manager.py`)
-        - Other
+        - label: "CLI (cli.py)"
+        - label: "Tree Builder (tree_builder.py)"
+        - label: "Tree Renderer (tree_renderer.py)"
+        - label: "Markdown Export (md_exporter.py)"
+        - label: "Notes Manager (notes_manager.py)"
+        - label: "Other"
     validations:
       required: false
 
@@ -103,3 +104,5 @@ body:
           required: true
         - label: "Optional attachments/screenshots included (if applicable)"
           required: false
+    validations:
+      required: true

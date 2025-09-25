@@ -3,6 +3,7 @@ description: "Suggest a new feature or enhancement for the show-file-tree packag
 title: "[FEATURE]: "
 labels:
   - "enhancement"
+
 body:
   - type: input
     id: summary
@@ -63,10 +64,10 @@ body:
       label: "⚠️ Priority / Importance"
       description: "Select the priority of this feature request"
       options:
-        - Low
-        - Medium
-        - High
-        - Critical
+        - "Low"
+        - "Medium"
+        - "High"
+        - "Critical"
     validations:
       required: false
 
@@ -76,13 +77,13 @@ body:
       label: "🧩 Affected Modules / Components"
       description: "Select modules this feature would touch"
       options:
-        - CLI (`cli.py`)
-        - Tree Builder (`tree_builder.py`)
-        - Tree Renderer (`tree_renderer.py`)
-        - Markdown Export (`md_exporter.py`)
-        - Notes Manager (`notes_manager.py`)
-        - New module
-        - Other
+        - label: "CLI (cli.py)"
+        - label: "Tree Builder (tree_builder.py)"
+        - label: "Tree Renderer (tree_renderer.py)"
+        - label: "Markdown Export (md_exporter.py)"
+        - label: "Notes Manager (notes_manager.py)"
+        - label: "New module"
+        - label: "Other"
     validations:
       required: false
 
@@ -113,3 +114,5 @@ body:
           required: true
         - label: "Included references or mockups (if applicable)"
           required: false
+    validations:
+      required: true
