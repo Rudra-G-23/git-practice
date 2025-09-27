@@ -7,7 +7,7 @@ site_author: Rudra Prasad Bhuyan
 site_url: https://pypi.org/project/show-file-tree/
 
 # Repo Details
-repo_url: https://github.com/Rudra-G-23/show-file-tree
+repo_url: https://github.com/Rudra-G-23/git-practice
 repo_name: show-file-tree
 edit_uri: edit/main/docs/
 
@@ -133,4 +133,5 @@ nav:
   - Tree-Structure:
       - "Gitignore": "Tree-Structure/gitignore.md"
       - "Hidden files": "Tree-Structure/hidden.md"
+
       - "Max depth": "Tree-Structure/max-depth.md"
