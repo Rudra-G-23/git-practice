@@ -71,6 +71,9 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       fallback_to_build_date: true
+  - git-authors
+  - git-committers:
+      repository: Rudra-G-23/show-file-tree
 
 markdown_extensions:
   - admonition
@@ -141,3 +144,4 @@ nav:
       - "Hidden files": "Tree-Structure/hidden.md"
 
       - "Max depth": "Tree-Structure/max-depth.md"
+
