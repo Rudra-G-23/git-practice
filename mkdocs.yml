@@ -71,9 +71,6 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       fallback_to_build_date: true
-  - git-authors
-  - git-committers:
-      repository: Rudra-G-23/show-file-tree
 
 markdown_extensions:
   - admonition
@@ -96,6 +93,12 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 # Extra site-level data (footer, social)
 extra:
@@ -123,6 +126,7 @@ nav:
       - "About": "General/about.md"
       - "Version": "General/version.md"
       - "CLI Reference": "General/cli-reference.md"
+      - "Features": "General/features.md"
   - Output & display:
       - "Count": "Output & display/count.md"
       - "Format": "Output & display/format.md"

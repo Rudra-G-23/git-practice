@@ -19,17 +19,7 @@
 
 ---
 
-## Quick links
-- **Getting started** — Installation & Quickstart.
-- **CLI reference** — Complete flag list and examples.
-- **Features** — What the tool can do.
-- **Examples** — Real-world usage and exported Markdown.
-- **Contributing** — How to contribute, tests, and release notes.
-- **Changelog** — Release history.
-
----
-
-### Install
+# Install
 
 === "From PyPI"
     ```py linenums="1" hl_lines="2"
@@ -55,133 +45,32 @@
 === "Windows PowerShell"
     ```ps1 linenums="1" title="Windows PowerShell"
     .venv\Scripts\Activate.ps1
-
     pip install -e ".[all]"
     ```
 
 ---
-### Basic 
 
+# Basic 
 
----
+!!! tip "Command Line Interface of show-file-tree"
 
-``` yaml
-theme:
-  features:
-    - content.code.annotate # (1)
-    - end  (2)
-    - ldakfjfadfkj laksdfj   # (3)
-    - kdlfjalkdf # (4)!
-    - this is extra metric #(5)! 
-
-```
-
-1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be written in Markdown.
-2.  check 2
-3.  third is working
-4.  may also work 
-5.  no need of comment  i selcted this 5 options 
-
-
+    === "Usage" 
+        ```bash linenums="1" hl_lines="2"
+        # This is the first message you’ll see if you encounter any errors.
+        show-file-tree [OPTIONS] [ROOT_PATH] COMMAND [ARGS]...
+        ```
+    === "COMMAND"
+        ```text
+        [OPTIONS]:  TThe specific command or action to perform, e.g., `--count` or `--size`.
+        ```
+    === "ROOT_PATH"
+        ```text
+        [ROOT_PATH]: The root directory to start the file tree from. Default is current directory (.) 
+        ```
 
 ---
 
-``` yaml
-theme:
-  features:
-    - content.code.annotate # (1)
-```
-
-1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be written in Markdown.
-
----
-```bash
-show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]...
-```
-
-1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be written in Markdown.
-2.  this is 2nd
-3.  dlaskjfdlf
-
-
-
-```py linenums="1" title="Fundamental command"
-# Print a tree of the current directory:
-show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]... (1) { .annotate }
-```
-
-1. :file: File 
-2. Optional File Path
-3. All the commands
-
----
-
-```bash
-show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]... 
-```
-
-# (1) { .annotate: 'The options you want to use, like --size or --count.' }
-# (2) { .annotate: 'The root directory to start the file tree from. Default is current directory (.)' }
-# (3) { .annotate: 'The specific command or action to perform, e.g., --count or --size' }
-
-
---
-
-# Usage — Annotated examples
-
-This page demonstrates how to use **annotations** in Material for MkDocs to explain CLI syntax inline and in code blocks.
-
-## Annotated inline text
-
-Here is an example sentence with an inline marker (1) that opens an annotation.
-Lorem ipsum dolor sit amet, (1) consectetur adipiscing elit.
-{ .annotate }
-
-1.  :information_source: This is an inline annotation. It can contain `code`, **bold**, lists, images, etc.
-
----
-
-## Annotated code block (your CLI)
-
-Use a fenced code block and put the annotate class on the outer block. Then list numbered annotations below the block — the numbers in the command become clickable markers.
-
-```bash
-show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]...
-# (1) { .annotate: 'The options you want to use, like --size or --count.' }
-# (2) { .annotate: 'The root directory to start the file tree from. Default is current directory (.)' }
-# (3) { .annotate: 'The specific command or action to perform, e.g., --count or --size' }
-
-```
-
----
-
-### Annotated Code Example in Markdown
-
-
-```bash
-show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]...
-
-{ .annotate }
-
-1. **[OPTIONS]** → The options you want to use, like `--size` or `--count`.
-2. **[ROOT_PATH]** → The root directory to start the file tree from.
-   Defaults to current directory `(.)`.
-3. **COMMAND** → The specific command or action to perform,
-   e.g., `--count` or `--size`.
-
-```
-
-
-
----
-
-
----
-
-## File Path
+# File Path
 
 !!! danger "File path miss Match"
 
@@ -194,14 +83,17 @@ show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]...
 
         === "Example 1"
             ```bash
+            # Why Incorrect ✖️: Dot is default path,so no need to use
             show-file-tree . --size
-            ```
+            ``` 
         === "Example 2"
             ```bash
+            # Why Incorrect ✖️: First Path used 
             show-file-tree "C:\Users\Rudra\Desktop\MLOPs" --count
             ```
         === "Example 3"
             ```bash
+            # Why Incorrect ✖️: First Path used 
             show-file-tree "C:\Users\Rudra\Desktop\MLOPs"  --format md 
             ```
 
@@ -211,98 +103,65 @@ show-file-tree [OPTIONS] (1) [ROOT_PATH] (2) COMMAND (3) [ARGS]...
         ```bash
          show-file-tree COMMAND [ROOT_PATH]
         ```
----
+    === "Examples"
+        !!! example "Correct File Path Examples"
 
-Markdown tree exported to: C:\Users\Rudra\Desktop\git-practice\git-practice-file-tree.md
----
-Limit depth and show sizes & counts:
-
-```
-show-file-tree  -d 2 --size --count
-```
-
-Export the tree to Markdown (creates `<root>-file-tree.md`):
-
-```
-show-file-tree /path/to/project --format md --size
-```
-
----
-
-## Why use `show-file-tree`?
-
-* **Fast, memory-safe traversal** — suitable for large directories.
-* **Pretty terminal output** — icons, counts, human-readable sizes.
-* **Powerful filtering** — globs, mtime/ctime windows.
-* **Markdown export** — create readable project documentation automatically.
-* **Themes & ASCII fallback** — works in CI or minimal terminals.
+        === "Example 1"
+            ```bash
+            # Why Correct ✔️: Directly used the command 
+            show-file-tree  --size 
+            ``` 
+        === "Example 2"
+            ```bash
+            # Why Correct ✔️: First command -> Path
+            show-file-tree --count "C:\Users\Rudra\Desktop\MLOPs" 
+            ```
+        === "Example 3"
+            ```bash
+            Why Correct ✔️: First command -> Path 
+            show-file-tree  --format md "C:\Users\Rudra\Desktop\MLOPs"  
+            ```
 
 ---
 
-## Short CLI reference
+# Error Handing 
 
-```
-# structure-related
---max-depth, -d       Maximum recursion depth
---gitignore / --no-gitignore  Respect .gitignore (default: on)
---hidden              Show hidden files
-```
+!!! info "When a typo error occurs"
 
-```
-# sorting
---sort {name,size}
---order {asc,desc}
-```
-
-```
-# output & display
---format {tree,md}
---size
---count
---no-icons
---theme {colorful,monokai,light,nocolor}
-```
-
-```
-# filtering
---include, -i <PATTERN>
---exclude, -e <PATTERN>
---mtime-after <YYYY-MM-DD>
---mtime-before <YYYY-MM-DD>
---ctime-after <YYYY-MM-DD>
---ctime-before <YYYY-MM-DD>
-```
-
-```
-# general
---version
---about
-```
-
-For the full reference, see the **CLI reference** page.
+    === "If typo error occurs"
+        !!! failure "Error"
+        ```bash
+        Usage: show-file-tree [OPTIONS] [ROOT_PATH] COMMAND [ARGS]...
+        Try 'show-file-tree --help' for help.
+        ╭─ Error ──────────────────────────────────────────────────────────────────────────╮
+        │ Invalid value for '[ROOT_PATH]': Directory 'count' does not exist.               │
+        ╰──────────────────────────────────────────────────────────────────────────────────╯
+        ```
+    === "Use `Help` command" 
+        !!! success "Used `--help` command"
+        ```bash
+        show-file-tree --help
+        ```
 
 ---
 
-## Example: generate project documentation
+!!! example "Examples"
+    ``` bash title="1. Exported in Markdown format"
+    show-file-tree --format md [ROOT_PATH]
+    ```
 
-```
-# Create a Markdown file documenting your repo root
-show-file-tree /home/user/my-project --format md --size --count
-# -> my-project-file-tree.md
-```
-
+    ```bash title="2. Limit depth and show sizes & counts"
+    show-file-tree  -d 2 --size --count
+    ```
 ---
 
-## Ready-made next steps
+# Why use `show-file-tree`?
 
-* 🔎 **Read the Getting Started** — installation + first run
-* 📚 **Explore Examples** — real outputs and exported Markdown
-* 🛠️ **Contribute** — tests, style, feature requests (see CONTRIBUTING.md)
+- [x] **Fast, memory-safe traversal** — suitable for large directories.
+- [x] **Pretty terminal output** — icons, counts, human-readable sizes.
+- [x]  **Powerful filtering** — globs, mtime/ctime windows.
+- [x]  **Markdown export** — create readable project documentation automatically.
+- [x]  **Themes & ASCII fallback** — works in CI or minimal terminals.
+- [x] and many more .....
 
 ---
-
-## Footer / Contact
-
-- Author: **Rudra Prasad Bhuyan** — [GitHub](https://github.com/Rudra-G-23) 
-- License: MIT — see `LICENSE.md` 
-- Changelog: `CHANGELOG.md`
